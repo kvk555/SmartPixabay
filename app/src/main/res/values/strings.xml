@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">SmartPixabay</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="prompt_age">Age</string>
+    <string name="action_sign_in">Log in</string>
+    <string name="registration"><u>Registration</u></string>
+    <string name="register">Register</string>
+    <string name="invalid_email">Not a valid email</string>
+    <string name="invalid_password">Password must be 6–12 characters</string>
+    <string name="invalid_age">Allowed age from 18 to 99 years</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="registration_failed">"This user already exists"</string>
+
+    <string name="size">Size: %d</string>
+    <string name="type">Type: %s</string>
+    <string name="tags">Tags: %s</string>
+    <string name="user_name">User: %s</string>
+    <string name="views">Amount of views: %d</string>
+    <string name="likes">Amount of likes: %d</string>
+    <string name="comments">Comments: %d</string>
+    <string name="downloads">Downloads: %d</string>
+
+    <string name="home">Home</string>
+    <string name="image_details">Home</string>
+
+    <string name="network_error">"Network Error"</string>
+
+
 </resources>

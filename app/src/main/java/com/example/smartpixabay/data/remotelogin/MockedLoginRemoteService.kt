@@ -1,10 +1,12 @@
-package com.example.smartpixabay.data.common
+package com.example.smartpixabay.data.remotelogin
 
 import android.content.Context
-import com.example.smartpixabay.data.App
-import com.example.smartpixabay.domain.data.LoggedUser
-import com.example.smartpixabay.domain.data.RegisteredUser
-import com.example.smartpixabay.domain.data.toComparableString
+import com.example.smartpixabay.App
+import com.example.smartpixabay.data.PREF_FILE_KEY
+import com.example.smartpixabay.data.USERS_KEY
+import com.example.smartpixabay.domain.entities.LoggedUser
+import com.example.smartpixabay.domain.entities.RegisteredUser
+import com.example.smartpixabay.domain.entities.toComparableString
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext

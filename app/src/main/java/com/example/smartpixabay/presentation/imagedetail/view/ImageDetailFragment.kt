@@ -1,60 +1,52 @@
 package com.example.smartpixabay.presentation.imagedetail.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.navArgs
 import com.example.smartpixabay.R
+import com.example.smartpixabay.databinding.FragmentImageDetailBinding
+import com.example.smartpixabay.presentation.home.view.adapter.setImageUrl
+import com.example.smartpixabay.presentation.imagedetail.viewmodel.ImageDetailViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ImageDetailFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ImageDetailFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding: FragmentImageDetailBinding
+    private val args: ImageDetailFragmentArgs by navArgs()
+
+    private val viewModel: ImageDetailViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_image_detail, container, false)
+    ): View {
+
+        binding = FragmentImageDetailBinding.inflate(inflater, container, false)
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ImageDetailFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ImageDetailFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        activity?.title = getString(R.string.image_details)
+
+        viewModel.image.observe(viewLifecycleOwner, Observer {
+            setImageUrl(binding.image, it.webformatURL)
+            binding.imageSize.text = resources.getString(R.string.size, it.imageSize)
+            binding.imageType.text = resources.getString(R.string.type, it.type)
+            binding.imageTags.text = resources.getString(R.string.tags, it.tags)
+            binding.userName.text = resources.getString(R.string.user_name, it.user)
+            binding.views.text = resources.getString(R.string.views, it.views)
+            binding.likes.text = resources.getString(R.string.likes, it.likes)
+            binding.comments.text = resources.getString(R.string.comments, it.comments)
+            binding.downloads.text = resources.getString(R.string.downloads, it.downloads)
+        })
+
+        viewModel.getImageById(args.imageId)
     }
 }

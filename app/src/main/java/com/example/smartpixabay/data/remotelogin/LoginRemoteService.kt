@@ -1,8 +1,7 @@
-package com.example.smartpixabay.data.common
+package com.example.smartpixabay.data.remotelogin
 
-import com.example.smartpixabay.domain.data.LoggedUser
-import com.example.smartpixabay.domain.data.RegisteredUser
-
+import com.example.smartpixabay.domain.entities.LoggedUser
+import com.example.smartpixabay.domain.entities.RegisteredUser
 
 /**
  * For imitation remote login requests and response

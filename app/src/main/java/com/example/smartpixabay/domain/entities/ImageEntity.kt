@@ -1,4 +1,4 @@
-package com.example.smartpixabay.domain.data
+package com.example.smartpixabay.domain.entities
 
 data class ImageEntity(
     val id: String,

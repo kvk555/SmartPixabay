@@ -1,4 +1,4 @@
-package com.example.smartpixabay.presentation.registration.view.ui.login
+package com.example.smartpixabay.presentation.registration.view.data
 
 /**
  * Data validation state of the login form.

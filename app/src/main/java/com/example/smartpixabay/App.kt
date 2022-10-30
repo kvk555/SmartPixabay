@@ -1,4 +1,4 @@
-package com.example.smartpixabay.data
+package com.example.smartpixabay
 
 import android.app.Application
 import com.example.smartpixabay.presentation.di.appModule

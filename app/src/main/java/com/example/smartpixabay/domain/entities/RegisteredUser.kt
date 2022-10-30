@@ -1,4 +1,4 @@
-package com.example.smartpixabay.domain.data
+package com.example.smartpixabay.domain.entities
 
 data class RegisteredUser(
     val email: String,
@@ -6,4 +6,4 @@ data class RegisteredUser(
     val age: String
 )
 
-fun RegisteredUser.toComparableString(): String = "email=$email, password=$password,"
+fun RegisteredUser.toComparableString(): String = "email=$email,"

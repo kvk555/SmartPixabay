@@ -1,4 +1,4 @@
-package com.example.smartpixabay.presentation.registration.view.ui.login
+package com.example.smartpixabay.presentation.registration.view
 
 import android.os.Bundle
 import android.text.Editable
@@ -83,13 +83,15 @@ class RegistrationFragment : Fragment() {
                 viewModel.registrationDataChanged(
                     usernameEditText.text.toString(),
                     passwordEditText.text.toString(),
-                    ageEditText.text.toString().toInt()
+                    0.takeIf { ageEditText.text.isEmpty() } ?: ageEditText.text.toString().toInt()
+
                 )
             }
         }
         usernameEditText.addTextChangedListener(afterTextChangedListener)
         passwordEditText.addTextChangedListener(afterTextChangedListener)
-        passwordEditText.setOnEditorActionListener { _, actionId, _ ->
+        ageEditText.addTextChangedListener(afterTextChangedListener)
+        ageEditText.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 viewModel.register(
                     usernameEditText.text.toString(),
